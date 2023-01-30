@@ -1,0 +1,69 @@
+plugins {
+    id 'java'
+}
+
+group 'org.badbotplugin'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven {
+        url "https://repo.runelite.net"
+    }
+    mavenCentral()
+}
+
+def runeLiteVersion = getRuneLiteVersion()
+
+static def getRuneLiteVersion() {
+    URL url = new URL("http://repo.runelite.net/net/runelite/client/maven-metadata.xml")
+    URLConnection urlConnection = url.openConnection()
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
+            urlConnection.getInputStream()))
+    String latestName = null
+    String inputLine
+    while ((inputLine = bufferedReader.readLine()) != null) {
+        inputLine = inputLine.trim()
+        if (inputLine.contains("<release>")) {
+            latestName = inputLine.replace("<release>", "").replace("</release>", "")
+        }
+    }
+    bufferedReader.close()
+    return latestName
+}
+
+dependencies {
+    compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
+    compileOnly group: 'net.runelite', name: 'cache', version: runeLiteVersion
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation files('C:\\Users\\Sohvax\\Documents\\badbot\\badbot-0.0.1.jar')
+}
+
+enum OperatingSystem {
+    MAC, WINDOWS, LINUX, UNKNOWN
+
+    static def getOperatingSystem() {
+        final String os = System.getProperty("os.name")
+        if (os.contains("Mac")) {
+            return MAC
+        } else if (os.contains("Windows")) {
+            return WINDOWS
+        } else if (os.contains("Linux")) {
+            return LINUX
+        } else {
+            return UNKNOWN
+        }
+    }
+}
+
+task launchClientWithScript(type: JavaExec) {
+    group = "Execution"
+    description = "Runs the main method within RSB"
+    classpath = sourceSets.main.compileClasspath + sourceSets.main.runtimeClasspath
+    getMainClass() set "net.runelite.rsb.botLauncher.Application"
+    String jvmArgString = (OperatingSystem.MAC == OperatingSystem.getOperatingSystem()) ?
+            "-debug --add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED --add-opens=java.desktop/sun.awt=ALL-UNNAMED" :
+            "-debug"
+    jvmArgs jvmArgString.split(" ")
+    args "--bot-runelite --developer-mode".split(" ")
+}
