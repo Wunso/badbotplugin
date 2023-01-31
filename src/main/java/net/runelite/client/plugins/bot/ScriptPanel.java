@@ -108,7 +108,7 @@ public class ScriptPanel extends PluginPanel {
         //---- buttonStart ----
         //scriptSelector.buttonStart.setText("Start");
         //scriptSelector.buttonStart.addActionListener(scriptSelector::buttonStartActionPerformed);
-        final BufferedImage startIcon = ImageUtil.loadImageResource(getClass(), "C:\\Users\\Sohvax\\Documents\\badbotplugin\\badbotplugin\\build\\resources\\main\\net.runelite.client.plugins.bot\\start.png");
+        final BufferedImage startIcon = ImageUtil.loadImageResource(getClass(), "start.png");
         scriptSelector.buttonStart = new MaterialTab(new ImageIcon(startIcon.getScaledInstance(24, 24, 5)), scriptPanelToolbar, null);
         scriptSelector.buttonStart.setToolTipText("Start selected script");
         scriptSelector.buttonStart.setSize(new Dimension(28, 28));
