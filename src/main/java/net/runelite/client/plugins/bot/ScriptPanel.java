@@ -40,30 +40,6 @@ public class ScriptPanel extends PluginPanel {
      *
      * @param e ActionEvent
      */
-    private void openForumsPerformed(ActionEvent e) {
-        String forumsURL = GlobalConfiguration.Paths.URLs.FORUMS;
-        try {
-            switch (GlobalConfiguration.getCurrentOperatingSystem()) {
-                case WINDOWS:
-                    Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + forumsURL);
-                    break;
-                case LINUX:
-                    Runtime.getRuntime().exec("xdg-open " + forumsURL);
-                    break;
-                case MAC:
-                    Runtime.getRuntime().exec("open " + forumsURL);
-                    break;
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    /**
-     * Opens the scripts folder in the default file explorer
-     *
-     * @param e ActionEvent
-     */
     private void openScriptsFolderPerformed(ActionEvent e) {
         String folderPath = GlobalConfiguration.Paths.getScriptsPrecompiledDirectory();
         try {
@@ -127,7 +103,7 @@ public class ScriptPanel extends PluginPanel {
         //scriptSelector.buttonPause.addActionListener(scriptSelector::buttonPauseActionPerformed);
         final BufferedImage pauseIcon = ImageUtil.loadImageResource(getClass(), "pause.png");
         scriptSelector.buttonPause = new MaterialTab(new ImageIcon(pauseIcon.getScaledInstance(20, 20, 5)), scriptPanelToolbar, null);
-        scriptSelector.buttonPause.setToolTipText("Pause the active script");
+        scriptSelector.buttonPause.setToolTipText("Pause current script");
         scriptSelector.buttonPause.setSize(new Dimension(28, 28));
         scriptSelector.buttonPause.setMinimumSize(new Dimension(0, 0));
         scriptSelector.buttonPause.addMouseListener(new MouseAdapter() {
@@ -144,7 +120,7 @@ public class ScriptPanel extends PluginPanel {
         //scriptSelector.buttonStop.addActionListener(scriptSelector::buttonStopActionPerformed);
         final BufferedImage stopIcon = ImageUtil.loadImageResource(getClass(), "stop.png");
         scriptSelector.buttonStop = new MaterialTab(new ImageIcon(stopIcon.getScaledInstance(20, 20, 5)), scriptPanelToolbar, null);
-        scriptSelector.buttonStop.setToolTipText("Stop running the active script");
+        scriptSelector.buttonStop.setToolTipText("Stop current script");
         scriptSelector.buttonStop.setSize(new Dimension(28, 28));
         scriptSelector.buttonStop.setMinimumSize(new Dimension(0, 28));
         scriptSelector.buttonStop.addMouseListener(new MouseAdapter() {

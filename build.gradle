@@ -4,6 +4,7 @@ plugins {
 }
 
 group 'com.github.Wunso'
+version '0.0.1'
 
 repositories {
     mavenLocal()
