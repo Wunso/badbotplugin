@@ -7,12 +7,8 @@ group 'com.github.Wunso'
 
 repositories {
     mavenLocal()
-    maven {
-        url "https://repo.runelite.net"
-    }
-    maven {
-        url "https://jitpack.io"
-    }
+    maven { url "https://repo.runelite.net" }
+    maven { url "https://jitpack.io" }
     mavenCentral()
 }
 
@@ -47,8 +43,7 @@ dependencies {
     compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
     compileOnly group: 'net.runelite', name: 'cache', version: runeLiteVersion
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    compileClasspath 'com.github.Wunso:BadClient:v0.0.1'
-    //implementation files('C:\\Users\\Sohvax\\Documents\\badbot\\badbot-0.0.1.jar')
+    implementation 'com.github.Wunso:badbot:master-SNAPSHOT'
 }
 
 sourceSets {

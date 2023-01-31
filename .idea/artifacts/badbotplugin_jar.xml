@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="badbotplugin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/badbotplugin_jar</output-path>
+    <root id="archive" name="badbotplugin.jar">
+      <element id="module-output" name="badbotplugin.main" />
+    </root>
+  </artifact>
+</component>
