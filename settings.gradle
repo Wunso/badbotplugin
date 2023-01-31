@@ -1,5 +1,5 @@
 rootProject.name = 'badbotplugin'
 
-include ':badbot'
-project(':badbot').projectDir = file('../../badbot')
+include 'badbot'
+project('badbot').projectDir = file('../badbot')
 
