@@ -7,7 +7,7 @@ public interface BotConfig extends Config {
     @ConfigItem(
             keyName = "bot",
             name = "BadClient",
-            description = "This client is bad.",
+            description = "This client is bad",
             position = 0
     )
 
