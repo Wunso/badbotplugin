@@ -26,7 +26,6 @@ public class ScriptPanel extends PluginPanel {
     private JButton buttonPause;
     private JButton buttonStop;
     private MaterialTab buttonScriptsFolder;
-    private JButton buttonForums;
     private ScriptSelector scriptSelector;
     private MaterialTabGroup scriptPanelToolbar;
 
@@ -90,7 +89,6 @@ public class ScriptPanel extends PluginPanel {
         //Make a search area
         scriptSelector.getSearch();
         scriptSelector.load();
-        buttonForums = new JButton();
 
         scriptPanelToolbar = new MaterialTabGroup();
         scriptPanelToolbar.setLayout(new GridLayout(1, 5, 5, 5));
@@ -186,10 +184,6 @@ public class ScriptPanel extends PluginPanel {
             }
         });
         scriptPanelToolbar.addTab(buttonScriptsFolder);
-
-        //---- buttonForums ----
-        buttonForums.setText("Forums");
-        buttonForums.addActionListener(e -> openForumsPerformed(e));
         assignLayouts();
     }
 
@@ -210,11 +204,6 @@ public class ScriptPanel extends PluginPanel {
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(47, 47, 47)
                                                 .addComponent(scriptSelector.accounts, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE))
-
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(buttonForums, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE))
                                         .addGap(10, 10, 10))
                                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -226,8 +215,6 @@ public class ScriptPanel extends PluginPanel {
                                 .addGap(10, 10, 10)
                                 .addComponent(scriptSelector.accounts, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 10, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(buttonForums, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(10, Short.MAX_VALUE))
 
 
