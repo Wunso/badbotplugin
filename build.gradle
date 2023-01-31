@@ -1,16 +1,27 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group 'org.badbotplugin'
-version '0.0.1-SNAPSHOT'
+group 'com.github.Wunso'
 
 repositories {
     mavenLocal()
     maven {
         url "https://repo.runelite.net"
     }
+    maven {
+        url "https://jitpack.io"
+    }
     mavenCentral()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
 }
 
 def runeLiteVersion = getRuneLiteVersion()
@@ -36,7 +47,27 @@ dependencies {
     compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
     compileOnly group: 'net.runelite', name: 'cache', version: runeLiteVersion
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    implementation files('C:\\Users\\Sohvax\\Documents\\badbot\\badbot-0.0.1.jar')
+    compileClasspath 'com.github.Wunso:BadClient:v0.0.1'
+    //implementation files('C:\\Users\\Sohvax\\Documents\\badbot\\badbot-0.0.1.jar')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs= ["src/main/java"]
+        }
+        resources {
+            srcDirs= ["src/main/resources"]
+        }
+    }
+}
+
+jar {
+    exclude 'META-INF/*.RSA'
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 enum OperatingSystem {
