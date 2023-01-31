@@ -108,8 +108,8 @@ public class ScriptPanel extends PluginPanel {
         //---- buttonStart ----
         //scriptSelector.buttonStart.setText("Start");
         //scriptSelector.buttonStart.addActionListener(scriptSelector::buttonStartActionPerformed);
-        //final BufferedImage startIcon = ImageUtil.loadImageResource(ScriptPanel.class, "start.png");
-        //scriptSelector.buttonStart = new MaterialTab(new ImageIcon(startIcon.getScaledInstance(24, 24, 5)), scriptPanelToolbar, null);
+        final BufferedImage startIcon = ImageUtil.loadImageResource(ScriptPanel.class, "start.png");
+        scriptSelector.buttonStart = new MaterialTab(new ImageIcon(startIcon.getScaledInstance(24, 24, 5)), scriptPanelToolbar, null);
         scriptSelector.buttonStart.setToolTipText("Start selected script");
         scriptSelector.buttonStart.setSize(new Dimension(28, 28));
         scriptSelector.buttonStart.setMinimumSize(new Dimension(0, 28));
