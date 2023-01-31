@@ -84,9 +84,9 @@ enum OperatingSystem {
 
 task launchClientWithScript(type: JavaExec) {
     group = "Execution"
-    description = "Runs the main method within RSB"
+    description = "Runs the main method within Badbot"
     classpath = sourceSets.main.compileClasspath + sourceSets.main.runtimeClasspath
-    getMainClass() set "net.runelite.rsb.botLauncher.Application"
+    getMainClass() set "net.runelite.osrsbb.launcher.Application"
     String jvmArgString = (OperatingSystem.MAC == OperatingSystem.getOperatingSystem()) ?
             "-debug --add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED --add-opens=java.desktop/sun.awt=ALL-UNNAMED" :
             "-debug"
