@@ -44,7 +44,7 @@ dependencies {
     compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
     compileOnly group: 'net.runelite', name: 'cache', version: runeLiteVersion
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    implementation project('badbot')
+    implementation project(':badbot')
     //implementation 'com.github.Wunso:badbot:master-SNAPSHOT'
 }
 
