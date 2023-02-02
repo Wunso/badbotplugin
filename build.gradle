@@ -48,7 +48,7 @@ dependencies {
     compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
     compileOnly group: 'net.runelite', name: 'cache', version: runeLiteVersion
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    implementation 'com.github.Wunso:badbot:d0e3dc2dde'
+    implementation 'com.github.Wunso:badbot:2d7c23566d'
 }
 
 sourceSets {
