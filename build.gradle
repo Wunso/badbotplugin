@@ -6,6 +6,13 @@ plugins {
 group 'com.github.Wunso'
 version '0.0.1'
 
+java {
+    toolchain {
+        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11
+    }
+}
+
 repositories {
     mavenLocal()
     maven { url "https://repo.runelite.net" }
